@@ -12,18 +12,18 @@
         echo '
             <script>
                 alert("Ya existe un usuario con ese nombre");
-                window.location = "../index.php";
-            </script>';
-        
-        exit();
+                window.location = "../front/registro.html";
+                </script>';
+                
+                exit();
     }
 
     $registro = mysqli_query($conexion, $query);
     if (!$registro) {
         echo '
-            <script>
-                alert("Error al registrarse");
-                window.location = "../index.php";
+        <script>
+            alert("Error al registrarse");
+            window.location = "../front/registro.html";
             </script>';
     } else {
         echo '

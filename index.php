@@ -27,7 +27,7 @@
                                 <li><a href=inicio>Acerca</a></li>
                             </ul>
                         </div>
-                        <li><a href="front/inicio_sesion.html" title="iniciar sesión iconos"><img src="front/sources/acceso.png" width="50" height="50"></a></li>
+                        <li><a href="front/usuario.html"><img src="front/sources/acceso.png" width="50" height="50"></a></li>
                     </ul>
                 </nav>
             </header>
@@ -35,7 +35,7 @@
 
         <div class="contenedor">
             <img src="front/sources/paisaje.webp" width="700" height="325" class="img">
-            <div class="div-botones">
+            <div>
                 <h1>¡La forma más divertida y efectiva de aprender de una cultura!</h1>
                 <form action="front/registro.html">
                     <button class="btn">Crear Cuenta</button>

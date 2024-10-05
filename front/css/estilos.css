@@ -30,6 +30,31 @@
 .h3-inferior{
     text-align: center;
 }
+.btn{
+    flex-direction: column;
+    margin: 20px 0 10px 0;
+    background-color: #151717;
+    border: none;
+    color: white;
+    font-size: 25px;
+    font-weight: 500;
+    border-radius: 20px;
+    height: 50px;
+    width: 90%;
+}
+.btn_volver{
+    background-color: #151717;
+    border: none;
+    color: white;
+    font-size: 20px;
+    font-weight: 200;
+    border-radius: 20px;
+    width: 10%;
+    cursor: pointer;
+}
+.img{
+    border-radius: 5%;
+}
 
 .ul1 {
     display: grid;
@@ -55,23 +80,6 @@
     display: grid;
     grid-template-columns: 200px 300px 200px 300px 200px;
     grid-template-rows: 50px;
-}
-
-.btn{
-    flex-direction: column;
-    margin: 20px 0 10px 0;
-    background-color: #151717;
-    border: none;
-    color: white;
-    font-size: 25px;
-    font-weight: 500;
-    border-radius: 20px;
-    height: 50px;
-    width: 90%;
-    cursor: pointer;
-}  
-.img{
-    border-radius: 5%;
 }
 
 li {
