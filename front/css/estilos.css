@@ -8,6 +8,7 @@
     margin-bottom: 40px;
 }
 .div_interno{
+    background-color: #021e47fb;
     border-radius: 15%;
     border-width: 1px;
     border-style: solid;
@@ -24,16 +25,16 @@
 .paises{
     margin-bottom: 70px;
 }
-.h1-inferior{
+.h1_inferior{
     text-align: left;
 }
-.h3-inferior{
+.h3_inferior{
     text-align: center;
 }
-.btn{
+.btn_registro{
     flex-direction: column;
     margin: 20px 0 10px 0;
-    background-color: #151717;
+    background-color: #399ed8;
     border: none;
     color: white;
     font-size: 25px;
@@ -41,9 +42,25 @@
     border-radius: 20px;
     height: 50px;
     width: 90%;
+    cursor: pointer;
+}
+.btn_inicio_sesion{
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    flex-direction: column;
+    margin: 20px 0 10px 0;
+    background-color: white;
+    color: black;
+    font-size: 25px;
+    font-weight: 500;
+    border-radius: 20px;
+    height: 50px;
+    width: 90%;
+    cursor: pointer;
 }
 .btn_volver{
-    background-color: #151717;
+    background-color: #021e47fb;
     border: none;
     color: white;
     font-size: 20px;
@@ -92,4 +109,51 @@ h1{
 }
 h3{
     text-align: justify;
+}
+
+/* CSS CONTENIDO */
+.subir_contenido{
+    margin-top: 10px;
+    width: 40%;
+    background-color: rgb(172, 172, 172);
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+.input{
+    font-size: 20px;
+    margin-left: 10px;
+    border-radius: 10px;
+    border: none;
+    width: 50%;
+    height: 50%;
+}
+.btn_subir{
+    margin-bottom: 30px;
+    background-color: #021e47fb;
+    border: none;
+    color: white;
+    font-size: 20px;
+    font-weight: 200;
+    border-radius: 20px;
+    width: 30%;
+    cursor: pointer;
+}
+.contenido_item {
+    margin-top: 30px;
+    border: 1px solid #000000;
+    padding: 20px;  
+    width: 50%;
+    text-align: center;
+}
+
+/* CSS CONTACTO */
+.contacto{
+    width: 15%;
+    align-items: center;
 }

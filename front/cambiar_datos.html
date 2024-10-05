@@ -3,27 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro</title>
+    <title>Cambiar Datos</title>
     <link rel="shortcut icon" href="sources/Logo.png">
     <link rel="stylesheet" href="../front/css/estilo_inicio_sesion.css">
 </head>
 <body>
+    <form action="../index.php">
+        <button class="btn_volver">Volver al inicio</button>
+    </form>
 <!--/* From Uiverse.io by JohnnyCSilva */ --> 
     <center>
         <div class="contenedor">
-            <form class="form" action="../back/registro.php" method="post">
+            <form class="form" action="../back/cambiar_datos.php" method="post">
                 <div class="header">
-                    <h1>Registro de Usuario</h1>
+                    <h1>Cambiar Datos de Usuario</h1>
                 </div>
 
                 <div class="inputForm">
                     <img src="../front/sources/acceso.png" width="20" height="20">
-                    <input placeholder="Ingresa tu nombre de usuario" class="input" type="text" name="usuario" autocomplete="off" required>
-                </div>
-
-                <div class="inputForm">
-                    <img src="../front/sources/arroba.png" width="20" height="20">
-                    <input placeholder="Ingresa tu email" class="input" type="text" name="email" autocomplete="off" required>
+                    <input placeholder="Ingresa tu nombre de usuario actual" class="input" type="text" name="usuario" autocomplete="off" required>
                 </div>
                 
                 <div class="inputForm">
@@ -31,8 +29,14 @@
                     <input placeholder="Ingresa tu contraseña" class="input" type="password" name="contrasena" autocomplete="off" required>
                 </div>
                 
-                <button class="button-submit">Regístrate</button>
-                <p class="p">Ya tienes cuenta? <a href="inicio_sesion.html">Inicia Sesión<a>
+                <br>
+
+                <div class="inputForm">
+                    <img src="../front/sources/acceso.png" width="20" height="20">
+                    <input placeholder="Ingresa un nuevo nombre de usuario" class="input" type="text" name="nuevo_usuario" autocomplete="off" required>
+                </div>
+
+                <button class="button-submit">Cambiar Datos</button>
             </form>
         </div> 
     </center>

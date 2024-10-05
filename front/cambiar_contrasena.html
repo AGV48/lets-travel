@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar Contraseña</title>
+    <link rel="shortcut icon" href="sources/Logo.png">
+    <link rel="stylesheet" href="../front/css/estilo_inicio_sesion.css">
+</head>
+<body>
+    <form action="../index.php">
+        <button class="btn_volver">Volver al inicio</button>
+    </form>
+<!--/* From Uiverse.io by JohnnyCSilva */ --> 
+    <center>
+        <div class="contenedor">
+            <form class="form" action="../back/cambiar_contrasena.php" method="post">
+                <div class="header">
+                    <h1>Cambiar Contraseña</h1>
+                </div>
+
+                <div class="inputForm">
+                    <img src="../front/sources/acceso.png" width="20" height="20">
+                    <input placeholder="Ingresa tu nombre de usuario actual" class="input" type="text" name="usuario" autocomplete="off" required>
+                </div>
+
+                <br>
+                
+                <div class="inputForm">
+                    <img src="../front/sources/candado.png" width="20" height="20">
+                    <input placeholder="Ingresa una nueva contraseña" class="input" type="password" name="nueva_contrasena" autocomplete="off" required>
+                </div>
+                
+
+                <button class="button-submit">Cambiar Datos</button>
+            </form>
+        </div> 
+    </center>
+</body>
+</html>
