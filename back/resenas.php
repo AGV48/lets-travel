@@ -1,8 +1,24 @@
 <?php
 
+    //se inicia una sesión
+    session_start();
+
+    // Se llama el archivo conexión.php para conectarse a la base de datos
     include "../config/conexion.php";
 
+    // Se verifica si el usuario no ha iniciado sesión
+    if(!isset($_SESSION['usuario'])){
+        echo '
+        <script> 
+            alert("Debes iniciar sesión para acceder a esta página");
+            location.href = "../index.php";
+        </script>';
+        exit();
+    }
+
+    // se crea la consulta para obtener las reseñas de los usuarios
     $query = "SELECT * FROM resenas";
+    // se ejecuta la consulta
     $resultado = mysqli_query($conexion, $query);
 ?>
 

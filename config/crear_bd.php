@@ -31,17 +31,20 @@
         // Seleccionar la base de datos
         $conexion->select_db($nombre_bd);
 
-        // Crear las tablas necesarias
+        // crea la tabla usuarios en la base de datos
         $sql_crear_tabla_usuarios = "
             CREATE TABLE usuarios (
                 usuario VARCHAR(50) NOT NULL PRIMARY KEY,
                 email VARCHAR(50),
                 contrasena VARCHAR(30)
             )";
+        // Ejecutar la consulta y verificar si se creó la tabla
         if ($conexion->query($sql_crear_tabla_usuarios) === TRUE) {
         } else {
             die("Error al crear la tabla: " . $conexion->error);
         }
+
+        // crea la tabla contenido en la base de datos
         $sql_crear_tabla_contenido = "
             CREATE TABLE contenido (
                 titulo VARCHAR(100) NOT NULL PRIMARY KEY,
@@ -49,20 +52,65 @@
                 descripcion text NOT NULL,
                 ruta text NOT NULL
             )";
+        // Ejecutar la consulta y verificar si se creó la tabla
         if ($conexion->query($sql_crear_tabla_contenido) === TRUE) {
         } else {
             die("Error al crear la tabla: " . $conexion->error);
         }
+
+        // crea la tabla reseñas en la base de datos
         $sql_crear_tabla_resenas = "
             CREATE TABLE resenas (
-                usuario VARCHAR(50) NOT NULL,
+                usuario VARCHAR(50) NOT NULL PRIMARY KEY,
                 resena text NOT NULL
             )";
+        // Ejecutar la consulta y verificar si se creó la tabla
         if ($conexion->query($sql_crear_tabla_resenas) === TRUE) {
         } else {
             die("Error al crear la tabla: " . conexion->error);
         }
 
+        // crea la tabla preguntas selección en la base de datos
+        $sql_crear_tabla_preguntas_seleccion = "
+            CREATE TABLE preguntas_seleccion (
+                pregunta VARCHAR(100) NOT NULL PRIMARY KEY,
+                respuesta_1 VARCHAR(100) NOT NULL,
+                respuesta_2 VARCHAR(100) NOT NULL,
+                respuesta_3 VARCHAR(100) NOT NULL,
+                respuesta_4 VARCHAR(100) NOT NULL,
+                correcta INT NOT NULL
+            )";
+        // Ejecutar la consulta y verificar si se creó la tabla
+        if ($conexion->query($sql_crear_tabla_preguntas_seleccion) === TRUE) {
+        } else {
+            die("Error al crear la tabla: " . $conexion->error);
+        }
+
+        // crea la tabla preguntas verdadero_falso en la base de datos
+        $sql_crear_tabla_preguntas_verdadero_falso = "
+            CREATE TABLE preguntas_verdadero_falso (
+                pregunta VARCHAR(100) NOT NULL PRIMARY KEY,
+                correcta INT NOT NULL
+            )";
+        // Ejecutar la consulta y verificar si se creó la tabla
+        if ($conexion->query($sql_crear_tabla_preguntas_verdadero_falso) === TRUE) {
+        } else {
+            die("Error al crear la tabla: " . $conexion->error);
+        }
+
+        // Crea la tabla preguntas completar_frases en la base de datos
+        $sql_crear_tabla_preguntas_completar_frases = "
+        CREATE TABLE preguntas_completar_frases (
+            frase VARCHAR(250) NOT NULL PRIMARY KEY,
+            correcta VARCHAR(100) NOT NULL
+        )";
+
+        // Ejecutar la consulta y verificar si se creó la tabla
+        if ($conexion->query($sql_crear_tabla_preguntas_completar_frases) === TRUE) {
+        } else {
+            die("Error al crear la tabla: " . $conexion->error);
+        }
+        
         // Crear el usuario administrador
         $sql_crear_admin = "
             INSERT INTO usuarios (usuario, email, contrasena) VALUES ('admin', 'admin@gmail.com', 'admin')";

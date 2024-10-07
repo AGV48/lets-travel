@@ -21,9 +21,9 @@
                         <li><img src="front/sources/guacamayo.png" width="50" height="50"></li>
                         <div class="div_interno">
                             <ul class="ul2">
-                                <li><a href=inicio><font color="white">Meetings</font></a></li>
+                                <li><a href="back/reunion.php"><font color="white">Reuniones</font></a></li>
                                 <li><a href=inicio><font color="white">Chats</font></a></li>
-                                <li><a href=inicio><font color="white">Learning</font></a></li>
+                                <li><a href="front/aprendizaje.html"><font color="white">Aprendizaje</font></a></li>
                                 <li><a href="front/biblioteca_cultural.html"><font color="white">Biblioteca Cultural</font></a></li>
                                 <li><a href="back/resenas.php"><font color="white">Reseñas y Acerca De</font></a></li>
                             </ul>
@@ -33,6 +33,10 @@
                 </nav>
             </header>
         </div>
+
+        <form action="config/borrar.php">
+            <button>Borrar Base datos</button>
+        </form>
 
         <div class="contenedor">
             <img src="front/sources/paisaje.webp" width="700" height="325" class="img">

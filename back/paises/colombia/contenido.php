@@ -1,4 +1,6 @@
 <?php
+
+    //se inicia una sesión
     session_start();
 
     // Se llama el archivo conexión.php para conectarse a la base de datos
@@ -20,6 +22,7 @@
 
     // Se consulta la base de datos para obtener el contenido disponible
     $query = "SELECT * FROM contenido";
+    // Se ejecuta la consulta
     $resultado = mysqli_query($conexion, $query);
 ?>
 
@@ -67,20 +70,14 @@
         <!-- Aquí va el contenido disponible que se carga desde la base de datos o archivos -->
         <div class="contenido_disponible">
             <!-- Mostrar contenido cargado: noticias, videos o podcasts -->
-            <?php 
-            $contador = 0;
-            while ($fila = mysqli_fetch_assoc($resultado)): ?>
-                <?php if ($contador == 0): 
-                    $contador = $contador + 1;?>    
-                
-                <?php else: ?>
+            <?php while ($fila = mysqli_fetch_assoc($resultado)): ?>                
                     <div class="contenido_item">
                         <h2><?php echo $fila['titulo']; ?></h2>
                         <p><?php echo $fila['descripcion']; ?></p>
 
                         <a href="<?php echo $fila['ruta']; ?>">Ver contenido</a>
+                        
                     </div>
-                <?php endif; ?>
             <?php endwhile; ?>
         </div>
     </center>

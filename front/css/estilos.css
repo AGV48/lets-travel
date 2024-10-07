@@ -130,7 +130,7 @@ h3{
     margin-left: 10px;
     border-radius: 10px;
     border: none;
-    width: 50%;
+    width: 80%;
     height: 50%;
 }
 .btn_subir{
@@ -156,4 +156,39 @@ h3{
 .contacto{
     width: 15%;
     align-items: center;
+}
+
+/* CSS MEETING */
+.div_contador{
+    padding-top: 10px;
+    width: 40%;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    align-items: center;
+}
+.mensaje{
+    display: none; /* Ocultar el mensaje por defecto */
+    font-size: 32px;
+    margin-top: 15px;
+}
+.contador{
+    font-size: 40px;
+    margin-top: 20px;
+}
+
+/* CSS SELECCIÓN MULTIPLE */
+.respuestas{
+    display: flex;
+    align-items: center;
+}
+.respuesta{
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    font-size: 20px;
+    margin-left: 10px;
+    border-radius: 10px;
+    width: 50%;
+    height: 50%;
 }
