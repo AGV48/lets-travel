@@ -34,10 +34,6 @@
             </header>
         </div>
 
-        <form action="config/borrar.php">
-            <button>Borrar Base datos</button>
-        </form>
-
         <div class="contenedor">
             <img src="front/sources/paisaje.webp" width="700" height="325" class="img">
             <div>
