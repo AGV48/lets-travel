@@ -36,16 +36,18 @@
 
         <div class="contenedor">
             <img src="front/sources/paisaje.webp" width="700" height="325" class="img">
-            <div>
-                <h1>¡La forma más divertida y efectiva de aprender de una cultura!</h1>
-                <form action="front/registro.html">
-                    <button class="btn_registro">Crear Cuenta</button>
-                </form>
-                <form action="front/inicio_sesion.html">
-                    <button class="btn_inicio_sesion">Inciar Sesión</button>
-                </form>
+            <center>
+                <div>
+                    <h1>¡La forma más divertida y efectiva de aprender de una cultura!</h1>
+                    <form action="front/registro.html">
+                        <button class="btn_registro">Crear Cuenta</button>
+                    </form>
+                    <form action="front/inicio_sesion.html">
+                        <button class="btn_inicio_sesion">Inciar Sesión</button>
+                    </form>
+                </div>
             </div>
-        </div>
+            </center>
 
         <div class="paises">
             <ul class="ul-banderas-paises">

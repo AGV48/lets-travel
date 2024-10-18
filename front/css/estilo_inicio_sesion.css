@@ -1,12 +1,32 @@
-.btn_volver{
+li {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+.div_superior{
+    border-color: gray;
+    border-width: 5px;
+    border-style: solid;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    margin-bottom: 40px;
+}
+.div_interno{
     background-color: #399ed8;
-    border: none;
-    color: white;
-    font-size: 20px;
-    font-weight: 200;
-    border-radius: 20px;
-    width: 10%;
-    cursor: pointer;
+    border-radius: 15%;
+    border-width: 1px;
+    border-style: solid;
+}
+.ul1 {
+    display: grid;
+    grid-template-columns: 110px 40px 1030px 120px;
+    grid-template-rows: 50px;
+}
+.ul2{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    grid-template-rows: 50px;
 }
 
 /* From Uiverse.io by JohnnyCSilva */ 
@@ -84,7 +104,7 @@
     font-weight: 500;
     border-radius: 10px;
     height: 50px;
-    width: 100%;
+    width: 40%;
     cursor: pointer;
 }  
 .p {

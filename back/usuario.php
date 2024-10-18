@@ -31,9 +31,26 @@
     <link rel="stylesheet" href="../front/css/estilos.css">
 </head>
 <body>
-    <form action="../index.php">
-        <button class="btn_volver">Volver al inicio</button>
-    </form>
+    <div class="div_superior">
+            <header>
+                <nav>
+                    <ul class="ul1">
+                        <a href="../index.php"><li><h3>Let's Travel !</h3></li></a>
+                        <a href="../index.php"><li><img src="../front/sources/guacamayo.png" width="50" height="50"></li></a>
+                        <div class="div_interno">
+                            <ul class="ul2">
+                                <li><a href="reunion.php"><font color="white">Reuniones</font></a></li>
+                                <li><a href=inicio><font color="white">Chats</font></a></li>
+                                <li><a href="../front/aprendizaje.html"><font color="white">Aprendizaje</font></a></li>
+                                <li><a href="../front/biblioteca_cultural.html"><font color="white">Biblioteca Cultural</font></a></li>
+                                <li><a href="resenas.php"><font color="white">Reseñas y Acerca De</font></a></li>
+                            </ul>
+                        </div>
+                        <li><a href="usuario.php"><img src="../front/sources/acceso.png" width="50" height="50"></a></li>
+                    </ul>
+                </nav>
+            </header>
+    </div>
 
     <center>
         <img src="../front/sources/acceso.png" width="300" height="300">
