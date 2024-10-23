@@ -68,7 +68,7 @@
         <h1><font color="#399ed8">Reseñas</font></h1>
         <div class="subir_contenido">
             <h2>Comparte tu reseña</h2>
-            <form action="../back/subir_resena.php" method="POST">
+            <form action="../back/subir/subir_resena.php" method="POST">
                 <input type="text" class="input" placeholder="Reseña" name="resena" autocomplete="off" required><br><br>
                 <button type="submit" class="btn_subir">Enviar reseña</button>
             </form>

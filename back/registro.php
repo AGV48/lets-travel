@@ -7,6 +7,27 @@
     $email = $_POST['email'];
     $contrasena = $_POST['contrasena'];
     
+    // se verifica si la contraseña tiene al menos 8 caracteres    
+    if (strlen($contrasena) < 8){
+        echo '
+            <script>
+                alert("La contraseña debe tener al menos 8 caracteres");
+                window.location = "../front/registro.html";
+            </script>';
+        exit();
+    }
+
+    // se verifica si el email es de gmail, hotmail u outlook
+    if (str_contains($email, "@gmail.com") or str_contains($email, "@hotmail.com") or str_contains($email, "@outlook.com")){
+    } else {
+        echo '
+            <script>
+                alert("Email inválido");
+                window.location = "../front/registro.html";
+            </script>';
+        exit();
+    }
+
     // se crea la consulta para insertar los datos en la base de datos
     $query = "INSERT INTO usuarios (usuario, email, contrasena) VALUES ('$usuario', '$email', '$contrasena')";
 

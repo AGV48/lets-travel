@@ -24,7 +24,7 @@
         ];        
         echo '
             <script>
-                alert("Bienvenido");
+                alert("Bienvenid@");
                 window.location = "../index.php";
                 </script>';
             }else{

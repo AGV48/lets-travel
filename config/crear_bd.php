@@ -61,11 +61,23 @@
         // crea la tabla reseñas en la base de datos
         $sql_crear_tabla_resenas = "
             CREATE TABLE resenas (
-                usuario VARCHAR(50) NOT NULL PRIMARY KEY,
+                usuario VARCHAR(50) NOT NULL,
                 resena text NOT NULL
             )";
         // Ejecutar la consulta y verificar si se creó la tabla
         if ($conexion->query($sql_crear_tabla_resenas) === TRUE) {
+        } else {
+            die("Error al crear la tabla: " . conexion->error);
+        }
+
+        // crea la tabla reuniones en la base de datos
+        $sql_crear_tabla_reuniones = "
+            CREATE TABLE reuniones (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                fecha_reunion DATETIME NOT NULL
+            )";
+        // Ejecutar la consulta y verificar si se creó la tabla
+        if ($conexion->query($sql_crear_tabla_reuniones) === TRUE) {
         } else {
             die("Error al crear la tabla: " . conexion->error);
         }
@@ -104,7 +116,6 @@
             frase VARCHAR(250) NOT NULL PRIMARY KEY,
             correcta VARCHAR(100) NOT NULL
         )";
-
         // Ejecutar la consulta y verificar si se creó la tabla
         if ($conexion->query($sql_crear_tabla_preguntas_completar_frases) === TRUE) {
         } else {
@@ -113,7 +124,7 @@
         
         // Crear el usuario administrador
         $sql_crear_admin = "
-            INSERT INTO usuarios (usuario, email, contrasena) VALUES ('admin', 'admin@gmail.com', 'admin')";
+            INSERT INTO usuarios (usuario, email, contrasena) VALUES ('admin', '', 'admin')";
         if ($conexion->query($sql_crear_admin) === TRUE) {
         } else {
             die("Error al crear el usuario administrador: " . $conexion->error);

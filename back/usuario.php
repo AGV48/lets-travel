@@ -61,7 +61,7 @@
         <!-- Solo muestra el botón si el usuario no es "admin" -->
         <?php if ($nombre != "admin"): ?>
             <form action="../front/cambiar_datos.html">
-                <button class="btn_volver" id="btn_cambiar">Cambiar Datos</button>
+                <button class="btn_subir" id="btn_cambiar">Cambiar Datos</button>
             </form>
         <?php endif; ?>
     </center>

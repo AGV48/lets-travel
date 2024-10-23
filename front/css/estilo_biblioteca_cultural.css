@@ -4,23 +4,21 @@ li {
     align-items: center;
 }
 .div_superior{
+    background-color: #eee8aa;
     border-color: gray;
-    border-width: 5px;
+    border-width: 2px;
     border-style: solid;
-    border-top: none;
-    border-left: none;
-    border-right: none;
     margin-bottom: 40px;
 }
 .div_interno{
     background-color: #399ed8;
-    border-radius: 15%;
+    border-radius: 15px;
     border-width: 1px;
     border-style: solid;
 }
 .ul1 {
     display: grid;
-    grid-template-columns: 110px 40px 1030px 120px;
+    grid-template-columns: 110px 40px 1030px 110px;
     grid-template-rows: 50px;
 }
 .ul2{

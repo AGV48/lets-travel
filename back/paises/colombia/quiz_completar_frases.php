@@ -50,7 +50,7 @@
                                 <li><a href="../../resenas.php"><font color="white">Reseñas y Acerca De</font></a></li>
                             </ul>
                         </div>
-                        <li><a href="usuario.php"><img src="../../../front/sources/acceso.png" width="50" height="50"></a></li>
+                        <li><a href="../../usuario.php"><img src="../../../front/sources/acceso.png" width="50" height="50"></a></li>
                     </ul>
                 </nav>
             </header>
@@ -63,11 +63,8 @@
         <?php if ($nombre === 'admin'): ?>
             <div class="subir_contenido">
                 <h2>Subir Pregunta</h2>
-                <form action="../../subir_quiz_completar_frases.php" method="POST">
-                    <input type="text" class="input" placeholder="Frase" name="frase" autocomplete="off" required><br><br>
-                    
-                    <input type="text" class="input" placeholder="Correcta" name="correcta" autocomplete="off" required><br><br>
-            
+                <form action="../../subir/subir_quiz_completar_frases.php" method="POST">
+                    <input type="text" class="input" placeholder="Frase" name="frase" autocomplete="off" required><br><br>            
                     <button type="submit" class="btn_subir">Subir Frase</button>
                 </form>
             </div>
@@ -85,7 +82,7 @@
             <div class="contenido_item">
                 <div class="div_eliminar">
                     <?php if ($nombre === 'admin'): ?>
-                        <form action="../../eliminar_quiz_completar_frases.php" method="POST">
+                        <form action="../../eliminar_y_cambiar/eliminar_quiz_completar_frases.php" method="POST">
                             <input type="hidden" name="frase" value="<?php echo $fila['frase']; ?>">
                             <!-- /* From Uiverse.io by boryanakrasteva */ -->
                             <button class="btn">

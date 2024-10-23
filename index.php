@@ -34,6 +34,10 @@
             </header>
         </div>
 
+        <form action="config/borrar_bd.php">
+            <button>Borrar BD</button>
+        </form>
+
         <div class="contenedor">
             <img src="front/sources/paisaje.webp" width="700" height="325" class="img">
             <center>
