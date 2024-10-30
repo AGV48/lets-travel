@@ -123,5 +123,11 @@
         <center>
             <p>Tu puente hacia un viaje culturalmente enriquecido. © 2024 Let's Travel. Todos los Derechos Reservados</p>
         </center>
+
+        <form action="back/eventos_tipicos.php">
+            <button>Eventos típicos de Colombia</button>
+        </form>
+        
+    </body>
     </body>
 </html>

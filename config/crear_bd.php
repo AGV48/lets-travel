@@ -121,6 +121,43 @@
         } else {
             die("Error al crear la tabla: " . $conexion->error);
         }
+
+        // Crea la tabla de eventos típicos de Colombia por mes en la base de datos
+        $sql_crear_tabla_eventos_tipicos_por_mes = "
+        CREATE TABLE eventos_colombia (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            fecha DATE NOT NULL,
+            descripcion VARCHAR(255) NOT NULL
+        )";
+        // Ejecutar la consulta y verificar si se creó la tabla
+        if ($conexion->query($sql_crear_tabla_eventos_tipicos_por_mes) === TRUE) {
+        } else {
+            die("Error al crear la tabla: " . $conexion->error);
+        }
+
+        // Insertamos eventos típicos de Colombia por mes
+
+        $sql_insertar_eventos_tipicos_por_mes = "
+        INSERT INTO eventos_colombia (fecha, descripcion) VALUES
+            ('2024-01-01', 'Año Nuevo'),
+            ('2024-03-25', 'Día de San José'),
+            ('2024-04-07', 'Jueves Santo'),
+            ('2024-04-08', 'Viernes Santo'),
+            ('2024-05-01', 'Día del Trabajo'),
+            ('2024-06-17', 'Día del Sagrado Corazón'),
+            ('2024-07-20', 'Día de la Independencia'),
+            ('2024-08-07', 'Batalla de Boyacá'),
+            ('2024-10-12', 'Día de la Raza'),
+            ('2024-11-01', 'Día de Todos los Santos'),
+            ('2024-11-11', 'Independencia de Cartagena'),
+            ('2024-12-08', 'Día de la Inmaculada Concepción'),
+            ('2024-12-25', 'Navidad')";
+
+        // Ejecutar la consulta y verificar si se insertaron los eventos
+        if ($conexion->query($sql_insertar_eventos_tipicos_por_mes) === TRUE) {
+        } else {
+            die("Error al insertar eventos típicos de Colombia por mes: " . $conexion->error);
+        }
         
         // Crear el usuario administrador
         $sql_crear_admin = "
@@ -129,6 +166,7 @@
         } else {
             die("Error al crear el usuario administrador: " . $conexion->error);
         }
+
     } else {
         // Seleccionar la base de datos si ya existe
         $conexion->select_db($nombre_bd);
