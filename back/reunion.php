@@ -97,7 +97,7 @@
     <br><br>
 
     <center>
-        <h1><font color="#399ed8">¡Conéctate Con Otras Personas!</font></h1>
+        <h1>¡Conéctate Con Otras Personas!</h1>
     </center>
 
     <?php if ($nombre === 'admin'): ?>

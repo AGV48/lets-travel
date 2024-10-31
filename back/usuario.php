@@ -6,6 +6,9 @@
     // se llama el archivo conexion.php para conectarse a la base de datos
     include "../config/conexion.php";
 
+
+    include "buscar_usuario_en_bd.php";
+
     // se verifica si el usuario no ha iniciado sesión
     if(!isset($_SESSION['usuario'])){
         echo '
@@ -52,18 +55,101 @@
             </header>
     </div>
 
-    <center>
-        <img src="../front/sources/acceso.png" width="300" height="300">
-        <!-- se muestran los datos del usuario -->
-        <h1><?php echo $nombre; ?></h1>
-        <h1><?php echo $email; ?></h1>
+    <div class="buscar_usuario">
+        <h3>Buscar Usuarios</h3>
+        <img src="../front/sources/lupa.png" onclick="abrirVentana()">
+    </div>
+    <dialog class="ventana">
+        <button class="button" onclick="cerrarVentana()">
+            <span class="X"></span>
+            <span class="Y"></span>
+            <div class="close">Close</div>
+        </button>
 
-        <!-- Solo muestra el botón si el usuario no es "admin" -->
-        <?php if ($nombre != "admin"): ?>
-            <form action="../front/cambiar_datos.html">
-                <button class="btn_subir" id="btn_cambiar">Cambiar Datos</button>
-            </form>
-        <?php endif; ?>
-    </center>
+        <br>
+        <br>
+        <br>
+
+        <form action="buscar_usuario_en_bd.php" id="form_buscar" method="POST">
+            <center>
+                <h1>Buscar Usuarios</h1><br>
+                <input type="text" placeholder="Ingresa el nombre del usuario" class="input_usuarios" name="usuario" autocomplete="off"><br><br>
+                <button type="submit" class="btn_subir">Buscar</button>
+
+                <br><br>
+
+                <div id="encontrados" style="display: none;">
+                    <h2>Nombre de Usuario:</h2>
+                    <h3 class="h3_inferior" id="nombre"></h3>
+                    
+                    <h2>Correo Electrónico:</h2>
+                    <h3 class="h3_inferior" id="correo"></h3>
+                </div>
+            </center>
+        </form>
+    </dialog>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div>
+        <center>
+            <img src="../front/sources/acceso.png" width="250" height="250">
+            <!-- se muestran los datos del usuario -->
+            <h1><?php echo $nombre; ?></h1>
+            <h1><?php echo $email; ?></h1>
+    
+            <!-- Solo muestra el botón si el usuario no es "admin" -->
+            <?php if ($nombre != "admin"): ?>
+                <form action="../front/cambiar_datos.html">
+                    <button class="btn_subir" id="btn_cambiar">Cambiar Datos</button>
+                </form>
+            <?php endif; ?>
+        </center>
+    </div>
+
+    <script>
+    function abrirVentana() {
+        const modal = document.querySelector('dialog');
+        modal.showModal();
+        
+        document.querySelector('#form_buscar').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const usuario = document.querySelector('.input_usuarios').value;
+
+            // Enviar la solicitud AJAX al archivo PHP
+            fetch('buscar_usuario_en_bd.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: `usuario=${encodeURIComponent(usuario)}`
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert(data.error);
+                } else {
+                    document.getElementById('encontrados').style.display = "block";
+                    document.getElementById('nombre').innerText = data.usuario;
+                    document.getElementById('correo').innerText = data.email;
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    }
+
+    function cerrarVentana() {
+        const modal = document.querySelector('dialog');
+        modal.close();
+        
+        // Limpia los datos mostrados
+        document.querySelector('.input_usuarios').value = '';
+        document.getElementById('nombre').innerText = '';
+        document.getElementById('correo').innerText = '';
+        document.getElementById('encontrados').style.display = "none";
+    }
+</script>
 </body>
 </html>

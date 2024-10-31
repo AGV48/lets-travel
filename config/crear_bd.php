@@ -159,10 +159,53 @@
             die("Error al insertar eventos típicos de Colombia por mes: " . $conexion->error);
         }
         
+        // Crea la tabla de lugares turísticos y gastronómicos en la base de datos
+        $sql_crear_tabla_lugares = "
+        CREATE TABLE lugares (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            nombre VARCHAR(100) NOT NULL,
+            descripcion VARCHAR(255) NOT NULL,
+            categoria ENUM('turistico', 'gastronomico') NOT NULL,
+            ubicacion VARCHAR(50) NOT NULL
+        )";
+        // Ejecutar la consulta y verificar si se creó la tabla
+        if ($conexion->query($sql_crear_tabla_lugares) === TRUE) {
+        } else {
+            die("Error al crear la tabla: " . $conexion->error);
+        }
+
+        // Insertamos lugares turísticos y gastronómicos
+
+        $sql_insertar_lugares = "
+        INSERT INTO lugares (nombre, descripcion, categoria, ubicacion) VALUES 
+            ('Cerro Monserrate', 'Famoso santuario en lo alto de la montaña con vistas panorámicas de Bogotá.', 'turistico', 'Bogotá'),
+            ('Museo del Oro', 'Museo que alberga una colección de oro y otros objetos precolombinos.', 'turistico', 'Bogotá'),
+            ('Restaurante Andrés Carne de Res', 'Restaurante popular con ambiente único y platos colombianos.', 'gastronomico', 'Bogotá'),
+            ('Parque Arví', 'Parque ecológico ubicado en las montañas cerca de Medellín.', 'turistico', 'Medellín'),
+            ('Pueblito Paisa', 'Réplica de un pueblo típico de Antioquia con vistas a Medellín.', 'turistico', 'Medellín'),
+            ('Mercado del Río', 'Centro gastronómico con una gran variedad de opciones de comida.', 'gastronomico', 'Medellín'),
+            ('Castillo de San Felipe', 'Fuerte histórico de Cartagena con vistas impresionantes.', 'turistico', 'Cartagena'),
+            ('Plaza Santo Domingo', 'Popular plaza con cafés y restaurantes en Cartagena.', 'gastronomico', 'Cartagena'),
+            ('Parque Nacional Natural Tayrona', 'Parque natural en la costa caribeña con playas y biodiversidad.', 'turistico', 'Santa Marta'),
+            ('Restaurante Donde Chucho', 'Restaurante famoso por su comida de mar en Santa Marta.', 'gastronomico', 'Santa Marta')";
+
+        // Ejecutar la consulta y verificar si se insertaron los lugares
+        if ($conexion->query($sql_insertar_lugares) === TRUE) {
+        } else {
+            die("Error al insertar lugares turísticos y gastronómicos: " . $conexion->error);
+        }
+
         // Crear el usuario administrador
         $sql_crear_admin = "
             INSERT INTO usuarios (usuario, email, contrasena) VALUES ('admin', '', 'admin')";
         if ($conexion->query($sql_crear_admin) === TRUE) {
+        } else {
+            die("Error al crear el usuario administrador: " . $conexion->error);
+        }
+
+        $sql_crear_usuario = "
+            INSERT INTO usuarios (usuario, email, contrasena) VALUES ('a', '', 'aa')";
+        if ($conexion->query($sql_crear_usuario) === TRUE) {
         } else {
             die("Error al crear el usuario administrador: " . $conexion->error);
         }

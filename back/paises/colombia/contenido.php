@@ -58,19 +58,19 @@
     </div>
 
     <center>
-        <h1>Noticias, Videos y Podcasts Disponibles</h1>
+        <h1>Noticias, Vídeos y Podcasts Disponibles</h1>
 
         <!-- Si el usuario es admin, mostrar la opción de subir contenido -->
         <?php if ($nombre === 'admin'): ?>
             <div class="subir_contenido">
-                <h2><font color="#399ed8">Subir Noticias, Videos o Podcasts</font></h2>
+                <h2><font color="#399ed8">Subir Noticias, Vídeos o Podcasts</font></h2>
                 <form action="../../subir/subir_contenido.php" method="POST">
                     <input type="text" class="input" placeholder="Título" name="titulo" autocomplete="off" required><br><br>
                     
                     <label for="tipo">Tipo de contenido:</label>
                     <select name="tipo" id="tipo">
                         <option value="noticia">Noticia</option>
-                        <option value="video">Video</option>
+                        <option value="video">Vídeo</option>
                         <option value="podcast">Podcast</option>
                     </select><br><br>
 

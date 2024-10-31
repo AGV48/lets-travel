@@ -39,6 +39,7 @@ while ($row = mysqli_fetch_assoc($resultado)) {
 }
 
 // Función para generar el calendario del mes actual
+// Función para generar el calendario del mes actual con enlaces a Google Calendar
 function mostrarCalendario($año, $mes, $eventos) {
     $primer_dia = date('N', strtotime("$año-$mes-01"));
     $dias_en_mes = date('t', strtotime("$año-$mes-01"));
@@ -58,7 +59,15 @@ function mostrarCalendario($año, $mes, $eventos) {
 
         // Verificar si hay un evento para la fecha actual
         if (isset($eventos[$fecha_actual])) {
-            echo "<td style='background-color: #ffeb3b;'><strong>$dia</strong><br>{$eventos[$fecha_actual]}</td>";
+            // Formato de fecha para Google Calendar (YYYYMMDD)
+            $fecha_gcal = date('Ymd', strtotime($fecha_actual));
+            $descripcion = urlencode($eventos[$fecha_actual]);
+
+            // Generar enlace para agregar al Google Calendar
+            $enlace_gcal = "https://calendar.google.com/calendar/r/eventedit?dates={$fecha_gcal}/{$fecha_gcal}&text={$descripcion}";
+
+            // Mostrar el evento con el enlace a Google Calendar
+            echo "<td style='background-color: #ffeb3b;'><strong>$dia</strong><br>{$eventos[$fecha_actual]}<br><a href='{$enlace_gcal}' target='_blank'>Añadir a Google Calendar</a></td>";
         } else {
             echo "<td>$dia</td>";
         }
@@ -97,14 +106,14 @@ function mostrarCalendario($año, $mes, $eventos) {
                     <a href="../../../index.php"><li><img src="../../../front/sources/guacamayo.png" width="50" height="50"></li></a>
                     <div class="div_interno">
                         <ul class="ul2">
-                            <li><a href="reunion.php"><font color="white">Reuniones</font></a></li>
+                            <li><a href="../../../reunion.php"><font color="white">Reuniones</font></a></li>
                             <li><a href=inicio><font color="white">Chats</font></a></li>
                             <li><a href="../../../front/aprendizaje.html"><font color="white">Aprendizaje</font></a></li>
                             <li><a href="../../../front/biblioteca_cultural.html"><font color="white">Biblioteca Cultural</font></a></li>
                             <li><a href="../../resenas.php"><font color="white">Reseñas y Acerca De</font></a></li>
                         </ul>
                     </div>
-                    <li><a href="usuario.php"><img src="../../../front/sources/acceso.png" width="50" height="50"></a></li>
+                    <li><a href="../../usuario.php"><img src="../../../front/sources/acceso.png" width="50" height="50"></a></li>
                 </ul>
             </nav>
         </header>
@@ -113,7 +122,7 @@ function mostrarCalendario($año, $mes, $eventos) {
     <br>
 
     <center>
-        <h1><font color="#399ed8">Calendario de Eventos en Colombia</font></h1>
+        <h1>Calendario de Eventos en Colombia</h1>
         
         <div class="calendario">
             <!-- Navegación para moverse entre meses -->

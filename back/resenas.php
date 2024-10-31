@@ -56,7 +56,7 @@
     <br>
 
     <center>
-        <h1><font color="#399ed8">¿Como Puedes Contactarnos?</font></h1>
+        <h1><font color="#399ed8">¿Cómo Puedes Contactarnos?</font></h1>
         <div class="contacto">
             <h3>Correo: letstravel@gmail.com</h3>
             <h3>Intagram: @letstravel_</h3>
@@ -65,7 +65,7 @@
         
         <br>
 
-        <h1><font color="#399ed8">Reseñas</font></h1>
+        <h1>Reseñas</h1>
         <div class="subir_contenido">
             <h2>Comparte tu reseña</h2>
             <form action="../back/subir/subir_resena.php" method="POST">
