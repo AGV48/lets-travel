@@ -35,7 +35,7 @@ p{
 }
 .ul2{
     display: grid;
-    grid-template-columns: auto auto auto auto auto;
+    grid-template-columns: auto auto auto auto;
     grid-template-rows: 50px;
 }
 

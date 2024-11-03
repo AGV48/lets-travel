@@ -22,7 +22,6 @@
                         <div class="div_interno">
                             <ul class="ul2">
                                 <li><a href="back/reunion.php"><font color="white">Reuniones</font></a></li>
-                                <li><a href=inicio><font color="white">Chats</font></a></li>
                                 <li><a href="front/aprendizaje.html"><font color="white">Aprendizaje</font></a></li>
                                 <li><a href="front/biblioteca_cultural.html"><font color="white">Biblioteca Cultural</font></a></li>
                                 <li><a href="back/resenas.php"><font color="white">Reseñas y Acerca De</font></a></li>
@@ -33,10 +32,6 @@
                 </nav>
             </header>
         </div>
-
-        <form action="config/borrar_bd.php">
-            <button>Borrar BD</button>
-        </form>
 
         <div class="contenedor">
             <img src="front/sources/paisaje.webp" width="700" height="325" class="img">
@@ -123,11 +118,6 @@
         <center>
             <p>Tu puente hacia un viaje culturalmente enriquecido. © 2024 Let's Travel. Todos los Derechos Reservados</p>
         </center>
-
-        <form action="back/eventos_tipicos.php">
-            <button>Eventos típicos de Colombia</button>
-        </form>
-        
     </body>
     </body>
 </html>

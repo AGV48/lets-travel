@@ -43,7 +43,6 @@
                         <div class="div_interno">
                             <ul class="ul2">
                                 <li><a href="reunion.php"><font color="white">Reuniones</font></a></li>
-                                <li><a href=inicio><font color="white">Chats</font></a></li>
                                 <li><a href="../front/aprendizaje.html"><font color="white">Aprendizaje</font></a></li>
                                 <li><a href="../front/biblioteca_cultural.html"><font color="white">Biblioteca Cultural</font></a></li>
                                 <li><a href="resenas.php"><font color="white">Reseñas y Acerca De</font></a></li>
@@ -76,14 +75,14 @@
                 <input type="text" placeholder="Ingresa el nombre del usuario" class="input_usuarios" name="usuario" autocomplete="off"><br><br>
                 <button type="submit" class="btn_subir">Buscar</button>
 
-                <br><br>
-
                 <div id="encontrados" style="display: none;">
                     <h2>Nombre de Usuario:</h2>
                     <h3 class="h3_inferior" id="nombre"></h3>
                     
                     <h2>Correo Electrónico:</h2>
-                    <h3 class="h3_inferior" id="correo"></h3>
+                    <h3 class="h3_inferior" id="correo">
+                        <a href="#" id="email_link" onclick="abrirGmail(event)">Enviar correo</a>
+                    </h3>
                 </div>
             </center>
         </form>
@@ -111,45 +110,59 @@
     </div>
 
     <script>
-    function abrirVentana() {
-        const modal = document.querySelector('dialog');
-        modal.showModal();
-        
-        document.querySelector('#form_buscar').addEventListener('submit', function(event) {
-            event.preventDefault();
+        const asunto = "Planeación Encuentro";
+        const cuerpo = "Hola, ¿cómo estás? Quería saber si tienes tiempo para reunirnos y planear un encuentro. ¡Saludos!";
+        function abrirGmail(event) {
+            event.preventDefault(); // Previene el comportamiento predeterminado del enlace
 
-            const usuario = document.querySelector('.input_usuarios').value;
+            const email = document.getElementById('email_link').innerText;
+            if (email) {
+                const gmailUrl = `https://mail.google.com/mail/?view=cm&to=${encodeURIComponent(email)}&su=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
+                window.open(gmailUrl, '_blank'); // Abre la redacción de Gmail en una nueva pestaña
+            } else {
+                console.error("El correo no está definido.");
+            }
+        }
 
-            // Enviar la solicitud AJAX al archivo PHP
-            fetch('buscar_usuario_en_bd.php', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: `usuario=${encodeURIComponent(usuario)}`
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.error) {
-                    alert(data.error);
-                } else {
-                    document.getElementById('encontrados').style.display = "block";
-                    document.getElementById('nombre').innerText = data.usuario;
-                    document.getElementById('correo').innerText = data.email;
-                }
-            })
-            .catch(error => console.error('Error:', error));
-        });
-    }
+        function abrirVentana() {
+            const modal = document.querySelector('dialog');
+            modal.showModal();
+            
+            document.querySelector('#form_buscar').addEventListener('submit', function(event) {
+                event.preventDefault();
 
-    function cerrarVentana() {
-        const modal = document.querySelector('dialog');
-        modal.close();
-        
-        // Limpia los datos mostrados
-        document.querySelector('.input_usuarios').value = '';
-        document.getElementById('nombre').innerText = '';
-        document.getElementById('correo').innerText = '';
-        document.getElementById('encontrados').style.display = "none";
-    }
-</script>
+                const usuario = document.querySelector('.input_usuarios').value;
+
+                fetch('buscar_usuario_en_bd.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: `usuario=${encodeURIComponent(usuario)}`
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        alert(data.error);
+                    } else {
+                        document.getElementById('encontrados').style.display = "block";
+                        document.getElementById('nombre').innerText = data.usuario;
+                        
+                        const emailLink = document.getElementById('email_link');
+                        emailLink.innerText = data.email;
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+            });
+        }
+
+        function cerrarVentana() {
+            const modal = document.querySelector('dialog');
+            modal.close();
+            
+            document.querySelector('.input_usuarios').value = '';
+            document.getElementById('nombre').innerText = '';
+            document.getElementById('correo').innerText = '';
+            document.getElementById('encontrados').style.display = "none";
+        }
+    </script>
 </body>
 </html>

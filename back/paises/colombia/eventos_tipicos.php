@@ -107,7 +107,6 @@ function mostrarCalendario($año, $mes, $eventos) {
                     <div class="div_interno">
                         <ul class="ul2">
                             <li><a href="../../../reunion.php"><font color="white">Reuniones</font></a></li>
-                            <li><a href=inicio><font color="white">Chats</font></a></li>
                             <li><a href="../../../front/aprendizaje.html"><font color="white">Aprendizaje</font></a></li>
                             <li><a href="../../../front/biblioteca_cultural.html"><font color="white">Biblioteca Cultural</font></a></li>
                             <li><a href="../../resenas.php"><font color="white">Reseñas y Acerca De</font></a></li>
